@@ -20,8 +20,11 @@
             <input type="reset"  value="Reset"/>
         </form>
     </body>
+        <a href="createUser.jsp">Sign Up</a>
+        <a href="shopping.jsp">Shopping Here!</a><br/>
     <%
-        String message = (String) request.getAttribute("MESSAGE");
+        String message = (String) request.getAttribute("ERROR");
+        
         if (message == null) {
             message = "";
         }

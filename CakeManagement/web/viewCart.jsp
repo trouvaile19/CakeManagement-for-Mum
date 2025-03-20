@@ -14,7 +14,7 @@
         <title>View Cart Page</title>
     </head>
     <body>
-        <h1>Your Cake's bill here</h1>
+        <h1>Your Cake's Cart here</h1>
         <% 
             Cart cart = (Cart) session.getAttribute("CART");
             if(cart != null){
@@ -82,7 +82,6 @@
         <a href="MainController?action=Clearcart">Clear Cart</a>
         <form action="MainController" method="POST">
             <input type="submit" name="action" value="Checkout"/>
-            <input type="" />
         </form>
         
         ${requestScope.MESSAGE}

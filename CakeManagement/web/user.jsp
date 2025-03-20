@@ -22,6 +22,7 @@
             </br>Phone: <%= loginUser.getPhone()%>
             </br>Role ID: <%= loginUser.getRoleID()%>
             </br><a href="MainController?action=Shopping">Shopping now</a>
+            </br><a href="MainController?action=Logout">Logout</a>
         <%
             }
         %>

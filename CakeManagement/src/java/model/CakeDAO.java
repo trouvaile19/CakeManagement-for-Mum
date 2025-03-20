@@ -59,8 +59,7 @@ public class CakeDAO {
                 }
             }
             
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ClassNotFoundException | SQLException e) {
         } finally {
             if(rs != null) rs.close();
             if(ptm != null) ptm.close();
@@ -68,6 +67,7 @@ public class CakeDAO {
         }
         return quantity;
     }
+    
 }
 
 

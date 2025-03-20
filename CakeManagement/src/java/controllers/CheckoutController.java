@@ -27,7 +27,7 @@ public class CheckoutController extends HttpServlet {
     private static final String ERROR = "viewCart.jsp";
     private static final String SUCCESS = "payment.jsp";
     private static final String EXPIRED_SESSION = "Your shopping cart has expired. Please purchase again.";
-    private static final String EXCEED_QUANTITY = "Sorry! We only have";
+    private static final String EXCEED_QUANTITY = "Sorry! We only have ";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
