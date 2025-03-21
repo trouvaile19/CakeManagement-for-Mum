@@ -200,7 +200,7 @@
         
         <div class="links">
             <a href="createUser.jsp">Sign Up</a>
-            <a href="shopping.jsp">Browse Cakes</a>
+            <a href="MainController?action=Shopping">Browse Cakes</a>
         </div>
         
         <!-- Replaced Java scriptlet with JSTL -->

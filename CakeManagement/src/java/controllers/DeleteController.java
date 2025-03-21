@@ -25,7 +25,7 @@ public class DeleteController extends HttpServlet {
 
     private static final String ERROR="SearchController";
     private static final String SUCCESS="SearchController";
-    private static final String ERROR_MESSAGE="TOI DANG LOGIN KO DC XOA!";
+    private static final String ERROR_MESSAGE="You can't delete yourself!";
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");

@@ -47,6 +47,8 @@ public class MainController extends HttpServlet {
     private static final String CLEARCART_CONTROLLER="ClearcartController";
     private static final String PAY="Pay";
     private static final String PAY_CONTROLLER="PayController";    
+    private static final String INSERT_ITEM="InsertItem";
+    private static final String INSERT_ITEM_CONTROLLER="InsertItemController";        
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -84,6 +86,8 @@ public class MainController extends HttpServlet {
                 url = CLEARCART_CONTROLLER;
             }else if (PAY.equals(action)){
                 url = PAY_CONTROLLER;
+            }else if (INSERT_ITEM.equals(action)){
+                url = INSERT_ITEM_CONTROLLER;
             }
             
         } catch (Exception e) {

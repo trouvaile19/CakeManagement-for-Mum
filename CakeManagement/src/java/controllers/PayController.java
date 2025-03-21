@@ -58,6 +58,7 @@ public class PayController extends HttpServlet {
                         boolean checkUpdateQuantity = orderDetailDAO.checkUpdateQuantity(quantity, productID);
                     }
                     request.setAttribute("MESS", "SUCCESSFUL PAYMENT");
+                    session.removeAttribute("CART");
                     url = SUCCESS;
                 }
             }else{

@@ -13,6 +13,8 @@ import utils.DBUtils;
 public class CakeDAO {
     private static final String LIST_PRODUCT = "SELECT productID, name, price, quantity, imageURL FROM tblProducts";
     private static final String CHECK_QUANTITY = "SELECT quantity FROM tblProducts WHERE productID = ?";
+    private static final String CHECK_INSERT_ITEM = "INSERT INTO tblProducts(productID, name, price, quantity, imageURL) VALUES(?,?,?,?,?)";
+    private static final String SELECT_ITEM_ID = "SELECT productID, name, price, quantity, imageURL FROM tblProducts WHERE productID = ?";
     
     public List<Product> getListCake() throws SQLException{
         List<Product> listCake = new ArrayList<>();
@@ -42,8 +44,7 @@ public class CakeDAO {
         }
         
         return listCake;
-    }
-    
+    }    
     public int checkQuantity(String productID) throws SQLException {
         int quantity = 0;
         Connection conn = null;
@@ -68,7 +69,55 @@ public class CakeDAO {
         }
         return quantity;
     }
-    
+    public boolean checkInsertItem(String productID, String name, double price, int quantity, String imageURL) throws SQLException{
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        try{
+            conn = DBUtils.getConnection();
+            if(conn != null){
+                ptm = conn.prepareStatement(CHECK_INSERT_ITEM);
+                ptm.setString(1,productID);
+                ptm.setString(2,name);
+                ptm.setDouble(3,price);
+                ptm.setInt(4,quantity);
+                ptm.setString(5,imageURL);
+                check = ptm.executeUpdate()>0?true:false;
+                
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            
+        }finally{
+            if(ptm != null) ptm.close();
+            if(conn != null) conn.close();
+        }
+        return check;
+    }
+    public boolean CheckExistID(String itemID) throws SQLException{
+        boolean check = false;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        ResultSet rs = null;
+        try{
+            conn = DBUtils.getConnection();
+            if(conn != null){
+                ptm = conn.prepareStatement(SELECT_ITEM_ID);
+                ptm.setString(1,itemID);
+                rs = ptm.executeQuery();
+                if(rs.next()){
+                    
+                }
+                
+            }
+        }catch(ClassNotFoundException | SQLException e){
+            
+        }finally{
+            if(rs != null) rs.close();
+            if(ptm != null) ptm.close();
+            if(conn != null) conn.close();
+        }
+        return check;
+    }
 }
 
 
