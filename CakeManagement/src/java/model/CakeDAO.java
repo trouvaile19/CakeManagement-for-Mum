@@ -11,7 +11,7 @@ import shopping.Product;
 import utils.DBUtils;
 
 public class CakeDAO {
-    private static final String LIST_PRODUCT = "SELECT productID, name, price, quantity FROM tblProducts";
+    private static final String LIST_PRODUCT = "SELECT productID, name, price, quantity, imageURL FROM tblProducts";
     private static final String CHECK_QUANTITY = "SELECT quantity FROM tblProducts WHERE productID = ?";
     
     public List<Product> getListCake() throws SQLException{
@@ -29,7 +29,8 @@ public class CakeDAO {
                     String name = rs.getString("name");
                     double price = rs.getDouble("price");
                     int quantity = rs.getInt("quantity");
-                    listCake.add(new Product(productID, name, price, quantity));
+                    String img = rs.getString("imageURL");
+                    listCake.add(new Product(productID, name, price, quantity, img));
                 }
             }
         }catch(ClassNotFoundException | SQLException e){

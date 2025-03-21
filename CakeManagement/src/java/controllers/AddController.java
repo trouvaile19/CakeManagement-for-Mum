@@ -42,7 +42,7 @@ public class AddController extends HttpServlet {
             if(cart == null){
                 cart = new Cart();
             }
-            boolean check = cart.add(new Product(productID, name, price, quantity));
+            boolean check = cart.add(new Product(productID, name, price, quantity,""));
             if(check){
                 session.setAttribute("CART", cart);
                 request.setAttribute("MESSAGE", "Added " + name + " - "+ quantity);

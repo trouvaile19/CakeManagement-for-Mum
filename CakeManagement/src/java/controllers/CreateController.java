@@ -24,7 +24,7 @@ import model.UserError;
 public class CreateController extends HttpServlet {
 
     private static final String ERROR = "createUser.jsp";
-    private static final String SUCCESS = "login.html";
+    private static final String SUCCESS = "login.jsp";
     private static final String DUPLICATE_MESSAGE = "The userID has already existed";
     private static final String UNKNOW_MESSAGE = "Duplicate User ID!!";
 
@@ -54,6 +54,7 @@ public class CreateController extends HttpServlet {
                 UserDTO user = new UserDTO(userID, fullName, phone, roleID, password);
                 boolean check = dao.createV2(user);
                 if (check) {
+                    request.setAttribute("ERROR", "Congratulations on your successful membership registration!");
                     url = SUCCESS;
                 } else {
                     request.setAttribute("ERROR", UNKNOW_MESSAGE);

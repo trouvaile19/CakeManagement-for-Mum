@@ -6,20 +6,22 @@ public class Product {
     private String name;
     private double price;
     private int quantity;
-
+    private String imageURL;
     public Product() {
         this.productID = "";
         this.name = "";
         this.price = 0;
         this.quantity= 0;
+        this.imageURL = "";
     }
 
     
-    public Product(String productID, String name, double price, int quantity) {
+    public Product(String productID, String name, double price, int quantity, String imageURL) {
         this.productID = productID;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.imageURL = imageURL;
     }
 
     public String getProductID() {
@@ -52,6 +54,14 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
     
     

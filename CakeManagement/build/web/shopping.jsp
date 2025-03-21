@@ -23,7 +23,7 @@
               user = loginUser.getFullName();
             };
         %>
-        <h1>Welcone <%=user%> to my Bakery Family!!!!</h1>
+        <h1>Welcome <%=user%> to my Bakery Family!!!!</h1>
         <form action="MainController" method="POST">
             Select your baby:
             <select name="product">
@@ -43,38 +43,35 @@
             <input type="submit" name="action" value="Add"></br>
             <input type="submit" name="action" value="View">            
         </form>
-        <% 
-            String message = (String) request.getAttribute("MESSAGE");
-            if(message == null) message ="";
-        %>
-        <%= message %>
+        <%String message = (String) request.getAttribute("MESSAGE");
+            if (message == null)   message = "";
+        %>          
+        <%= message%>
         <%
             List<Product> listCake = (List<Product>)  session.getAttribute("LIST_PRODUCT");
-            if(listCake != null && listCake.size() > 0){
-        %>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>NO</th>
-                    <th>CakeID</th>
-                    <th>Cake's Name</th>
-                    <th>Price</th>
-                    <th>quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%                         
-                    int count = 1;
-                    for (Product cake : listCake) {
-                %>
-                <tr>
-                    <td><%=count++%></td>
-                    <td><%=cake.getProductID()%></td>
-                    <td><%=cake.getName()%></td>
-                    <td><%=cake.getPrice()%></td>
-                    <td><%=cake.getQuantity()%></td>
-                </tr>
-                <%}%>
+            if(listCake != null && listCake.size() > 0){                        
+                int count = 1;
+                    for (Product cake : listCake) { // Giả sử danh sách sản phẩm được lưu trong productList
+%>
+                        <div class="product"> 
+                            <img src="<%= cake.getImageURL()%>" alt="Cake">
+                            <h2><%= cake.getName()%></h2>
+                            <p><%= cake.getPrice()%>$</p>
+                            <form action="MainController" method="POST">
+                                <select name="product">
+                                    <option value="<%= cake.getProductID()%>-<%= cake.getName()%>-<%= cake.getPrice()%>">
+                                        <%= cake.getProductID()%>-<%= cake.getName()%>-<%= cake.getPrice()%>$
+                                    </option>
+                                </select>
+                                <input type="number" name="quantity" value="1" min="1" step="1">
+                                <input type="submit" name="action" value="Add"><br>
+                            </form>
+                        </div>
+        
+                    <%= message %>
+<%
+    }
+%>
             </tbody>
         </table>
     <%}%>
