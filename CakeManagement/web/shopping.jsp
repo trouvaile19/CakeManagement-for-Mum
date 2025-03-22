@@ -436,17 +436,18 @@
         
         <!-- Enhanced navigation section -->
         <div class="navigation-section">
-            <%if(session.getAttribute("LOGIN_USER") != null){%>
-            <a href="user.jsp" class="nav-button profile-button">
-                <span class="nav-button-icon">👤</span>
-                Back to Profile
-            </a>
-            <%}else{%>
-            <a href="login.jsp" class="nav-button profile-button">
-                <span class="nav-button-icon">👤</span>
-                Back to Profile
-            </a>
-            <%}%>
+            <c:if test="${not empty sessionScope.LOGIN_USER}">
+                <a href="user.jsp" class="nav-button profile-button">
+                    <span class="nav-button-icon">👤</span>
+                    Login
+                </a>
+            </c:if>
+            <c:if test="${empty sessionScope.LOGIN_USER}">
+                <a href="login.jsp" class="nav-button profile-button">
+                    <span class="nav-button-icon">👤</span>
+                    Back to Profile
+                </a>
+            </c:if>
             <a href="MainController?action=Logout" class="nav-button logout-button">
                 <span class="nav-button-icon">🚪</span>
                 Logout

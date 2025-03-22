@@ -47,7 +47,7 @@ CREATE TABLE tblOrderDetails (
 INSERT INTO tblUsers (userID, fullName, phone, email, password, roleID) VALUES
 ('manqb123', 'Nguyen Thi Man', '0979303544','mannguyenqb1985@gmail.com', 'manqb123', 'AD'),
 ('sangqb', 'Mai Quang Sang', '0912345678','sangqb@gmail.com', 'sangqb', 'US'),
-('phucqb2005', 'Pham Thanh Phuc', '0986345675', 'phamthanhqb2005@gmail.com','phucqb2005', 'US'),
+('phucpham', 'Pham Thanh Phuc', '0986345675', 'phamthanhqb2005@gmail.com','phucpham', 'US'),
 ('muaythai', 'Lady Boy', '0982345675','gay123@gmail.com', 'muaythai', 'US');
 
 -- Sample data for Products
@@ -68,5 +68,5 @@ INSERT INTO tblProducts (productID, name, price, quantity, imageURL) VALUES
 delete from tblOrders
 delete from tblOrderDetails
 delete from tblProducts
-
+delete from tblUsers
 DROP DATABASE CakeManagement; 
