@@ -3,9 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cake Shop Login</title>
+    <title>Cake Shop Login 👤</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./avatar.png"> 
+
     <style>
         * {
             margin: 0;
@@ -172,6 +174,14 @@
             display: block;
             margin-bottom: 15px;
         }
+        .g-recaptcha{
+            margin: 0 auto;
+        }
+        .g-recaptcha{
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
@@ -184,16 +194,19 @@
         <form class="login-form" action="MainController" method="POST">
             <div class="form-group">
                 <label for="userID">User ID</label>
-                <input type="text" id="userID" name="userID" placeholder="Enter your user ID" />
+                <input type="text" id="userID" name="userID" placeholder="Enter your user ID" required/>
             </div>
             
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" />
+                <input type="password" id="password" name="password" placeholder="Enter your password" required/>
             </div>
-            
+            <div style="text-align: center">
+                <div class="g-recaptcha" data-sitekey="6LeShPsqAAAAAASOr9OEKzEsEEsDGBopkkmTpvjh"></div>
+                <div id="error" style="color: red"></div>
+            </div>
             <div class="button-group">
-                <input type="submit" name="action" value="Login" />
+                <input id="submit" type="submit" name="action" value="Login" />
                 <input type="reset" value="Reset" />
             </div>
         </form>
@@ -209,5 +222,22 @@
             <c:out value="${message}" default="" />
         </div>
     </div>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script>
+                window.onload = function(){
+                    let isValid = false;
+                    const form = document.querySelector(".login-form");
+                    const error = document.querySelector("#error");
+                    form.addEventListener("submit", function(event){
+                        const response = grecaptcha.getResponse();
+                        if(!response){
+                            event.preventDefault();
+                            error.innerHTML = "Please check valid captcha!";
+                        }else{
+                            error.innerHTML = "";
+                        }
+                    });                
+                }
+        </script>
 </body>
 </html>

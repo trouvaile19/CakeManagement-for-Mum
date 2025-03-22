@@ -11,7 +11,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cake Shopping</title>
+    <link rel="icon" type="image/x-icon" href="./avatar.png"> 
+    <title>Cake Shopping 🎂</title>
     <style>
         * {
             margin: 0;
@@ -435,10 +436,17 @@
         
         <!-- Enhanced navigation section -->
         <div class="navigation-section">
+            <%if(session.getAttribute("LOGIN_USER") != null){%>
             <a href="user.jsp" class="nav-button profile-button">
                 <span class="nav-button-icon">👤</span>
                 Back to Profile
             </a>
+            <%}else{%>
+            <a href="login.jsp" class="nav-button profile-button">
+                <span class="nav-button-icon">👤</span>
+                Back to Profile
+            </a>
+            <%}%>
             <a href="MainController?action=Logout" class="nav-button logout-button">
                 <span class="nav-button-icon">🚪</span>
                 Logout

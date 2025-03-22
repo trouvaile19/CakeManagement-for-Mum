@@ -10,8 +10,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Sign Up Page</title>
+    <title>Sign Up Page 👤</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./avatar.png"> 
     <style>
         * {
             margin: 0;
@@ -196,6 +197,7 @@
                 <h1>Create Account</h1>
                 <p>Join our sweet cake shop community</p>
             </div>
+            <div style="padding-left: 15px" class="signup-header-icon">🍰</div>
         </div>
         
         <form action="MainController" method="POST">
@@ -253,7 +255,7 @@
         
         <div class="footer-links">
             <a href="login.jsp">Back to Login</a> | 
-            <a href="shopping.jsp">Browse Cakes</a>
+            <a href="MainController?action=Shopping">Browse Cakes</a>
         </div>
     </div>
 </body>

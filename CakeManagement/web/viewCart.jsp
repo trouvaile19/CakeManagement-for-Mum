@@ -12,7 +12,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Shopping Cart</title>
+    <link rel="icon" type="image/x-icon" href="./avatar.png"> 
+
+    <title>Your Shopping Cart 🛒</title>
     <style>
         * {
             margin: 0;
@@ -372,7 +374,7 @@
                                         <td class="product-name">${product.name}</td>
                                         <td class="product-price">$${product.price}</td>
                                         <td>
- n                                             <input type="number" name="quantity" value="${product.quantity}" required min="1" class="quantity-input" />
+                                            <input type="number" name="quantity" value="${product.quantity}" required min="1" class="quantity-input" />
                                         </td>
                                         <td class="product-total">$<fmt:formatNumber value="${itemTotal}" pattern="#,##0.00" /></td>
                                         <td>

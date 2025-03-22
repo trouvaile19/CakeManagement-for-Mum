@@ -6,9 +6,11 @@ CREATE TABLE tblUsers (
     userID VARCHAR(50) PRIMARY KEY,
     fullName VARCHAR(100) NOT NULL,
     phone VARCHAR(15) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     roleID VARCHAR(15) NOT NULL
 );
+
 
 -- Table Orders
 CREATE TABLE tblOrders (
@@ -26,8 +28,8 @@ CREATE TABLE tblProducts (
     price DECIMAL(10,2) NOT NULL,
     quantity INT NOT NULL
 );
-ALTER TABLE tblProducts 
-ADD imageURL VARCHAR(255);
+	ALTER TABLE tblProducts 
+	ADD imageURL VARCHAR(255);
 
 -- Table OrderDetails
 CREATE TABLE tblOrderDetails (
@@ -42,10 +44,11 @@ CREATE TABLE tblOrderDetails (
 
 
 -- Sample data for Users
-INSERT INTO tblUsers (userID, fullName, phone, password, roleID) VALUES
-('manqb123', 'Nguyen Thi Man', '0979303544', 'manqb123', 'AD'),
-('sangqb', 'Mai Quang Sang', '0912345678', 'sangqb', 'US'),
-('phucqb2005', 'Pham Thanh Phuc', '0986345675', 'phucqb2005', 'US');
+INSERT INTO tblUsers (userID, fullName, phone, email, password, roleID) VALUES
+('manqb123', 'Nguyen Thi Man', '0979303544','mannguyenqb1985@gmail.com', 'manqb123', 'AD'),
+('sangqb', 'Mai Quang Sang', '0912345678','sangqb@gmail.com', 'sangqb', 'US'),
+('phucqb2005', 'Pham Thanh Phuc', '0986345675', 'phamthanhqb2005@gmail.com','phucqb2005', 'US'),
+('muaythai', 'Lady Boy', '0982345675','gay123@gmail.com', 'muaythai', 'US');
 
 -- Sample data for Products
 INSERT INTO tblProducts (productID, name, price, quantity, imageURL) VALUES

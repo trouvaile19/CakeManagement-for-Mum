@@ -37,7 +37,7 @@ public class ShoppingController extends HttpServlet {
             List<Product> listCake = dao.getListCake();
             if(!listCake.isEmpty()){
                 session.setAttribute("LIST_PRODUCT", listCake);
-                request.setAttribute("MESS", "Loaded data!");
+                request.setAttribute("MESS", "Loaded all available cakes!!");
                 url = SUCCESS;
             }else{
                 request.setAttribute("MESS", "Can't Loaded data!");

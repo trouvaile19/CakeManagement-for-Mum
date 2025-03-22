@@ -15,7 +15,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrator Page</title>
+    <title>Administrator Page 👤</title>
+    <link rel="icon" type="image/x-icon" href="./avatar.png"> 
     <style>
         /* Global Styles */
         * {
@@ -336,7 +337,6 @@
                 <c:out value="${found}" />
             </div>
         </c:if>
-
         <c:if test="${not empty requestScope.ERROR}">
             <div class="error-message">
                 ${requestScope.ERROR}
